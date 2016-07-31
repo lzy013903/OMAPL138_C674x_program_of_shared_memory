@@ -1,0 +1,232 @@
+******************************************************************************
+               TMS320C6x Linker PC v7.4.4                      
+******************************************************************************
+>> Linked Mon Jul 18 10:26:20 2016
+
+OUTPUT FILE NAME:   <shared_memory.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: c3005800
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SHDSPL2RAM            11800000   00040000  00000000  00040000  RWIX
+  SHRAM                 80000000   00020000  00000000  00020000  RWIX
+  DDR2                  c3000000   00800000  00006388  007f9c78  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+c3000000    c3000000    00003340   00000000    rw-
+  c3000000    c3000000    00003340   00000000    rw- .far
+c3003340    c3003340    000013a0   000013a0    r-x
+  c3003340    c3003340    000013a0   000013a0    r-x .text
+c30046e0    c30046e0    00001010   00000c10    rw-
+  c30046e0    c30046e0    00000c10   00000c10    rw- .fardata
+  c30052f0    c30052f0    00000400   00000000    rw- .stack
+c3005800    c3005800    00000c98   00000c98    r-x
+  c3005800    c3005800    00000080   00000080    r-x .text:_c_int00
+  c3005880    c3005880    00000c18   00000c18    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.init_array 
+*          0    c3000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    c3000000    00000000     UNINITIALIZED
+
+.far       0    c3000000    00003340     UNINITIALIZED
+                  c3000000    00003340     main.obj (.far)
+
+.text      0    c3003340    000013a0     
+                  c3003340    000005a0     rts6740_elf.lib : divd.obj (.text:__c6xabi_divd)
+                  c30038e0    000003e0     similar.obj (.text)
+                  c3003cc0    00000180     rts6740_elf.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  c3003e40    00000160                     : sqrt.obj (.text:sqrt)
+                  c3003fa0    00000100                     : autoinit.obj (.text:_auto_init_elf)
+                  c30040a0    00000100                     : cpy_tbl.obj (.text:copy_in)
+                  c30041a0    000000e0                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  c3004280    000000c0                     : exit.obj (.text:exit)
+                  c3004340    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  c3004400    000000a0     main.obj (.text)
+                  c30044a0    000000a0     rts6740_elf.lib : memcpy64.obj (.text:memcpy)
+                  c3004540    00000060                     : cpp_init.obj (.text:__TI_cpp_init)
+                  c30045a0    00000040                     : frcmpyd_div.obj (.text:__c6xabi_frcmpyd_div)
+                  c30045e0    00000040                     : llshift.obj (.text:__c6xabi_llshru)
+                  c3004620    00000040                     : args_main.obj (.text:_args_main)
+                  c3004660    00000020                     : errno.obj (.text:__c6xabi_errno_addr)
+                  c3004680    00000020                     : exit.obj (.text:abort)
+                  c30046a0    00000020                     : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  c30046c0    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+
+.fardata   0    c30046e0    00000c10     
+                  c30046e0    00000400     main.obj (.fardata:high_model)
+                  c3004ae0    00000400     main.obj (.fardata:low_model)
+                  c3004ee0    00000400     main.obj (.fardata:normal_model)
+                  c30052e0    0000000c     rts6740_elf.lib : exit.obj (.fardata)
+                  c30052ec    00000004                     : errno.obj (.fardata)
+
+.stack     0    c30052f0    00000400     UNINITIALIZED
+                  c30052f0    00000008     rts6740_elf.lib : boot.obj (.stack)
+                  c30052f8    000003f8     --HOLE--
+
+.text:_c_int00 
+*          0    c3005800    00000080     
+                  c3005800    00000080     rts6740_elf.lib : boot.obj (.text:_c_int00)
+
+.cinit     0    c3005880    00000c18     
+                  c3005880    00000bf4     (.cinit..fardata.load) [load image, compression = rle]
+                  c3006474    0000000c     (__TI_handler_table)
+                  c3006480    00000008     (.cinit..far.load) [load image, compression = zero_init]
+                  c3006488    00000010     (__TI_cinit_table)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ c3006488 records: 2, size/record: 8, table size: 16
+	.fardata: load addr=c3005880, load size=00000bf4 bytes, run addr=c30046e0, run size=00000c10 bytes, compression=rle
+	.far: load addr=c3006480, load size=00000008 bytes, run addr=c3000000, run size=00003340 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ c3006474 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+c3004680   C$$EXIT
+c3006488   __TI_CINIT_Base
+c3006498   __TI_CINIT_Limit
+c3006474   __TI_Handler_Table_Base
+c3006480   __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+c30056f0   __TI_STACK_END
+00000400   __TI_STACK_SIZE
+00000000   __TI_STATIC_BASE
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+00000001   __TI_args_main
+c3004540   __TI_cpp_init
+c30046a0   __TI_decompress_none
+c30046c0   __TI_decompress_rle24
+c30052e8   __TI_enable_exit_profile_output
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+c3004340   __TI_tls_init
+c30041a0   __TI_zero_init
+ffffffff   __binit__
+c3003340   __c6xabi_divd
+c3004660   __c6xabi_errno_addr
+c30045a0   __c6xabi_frcmpyd_div
+c30045e0   __c6xabi_llshru
+ffffffff   __c_args__
+c30052ec   __errno
+c3004620   _args_main
+c3003fa0   _auto_init_elf
+c3005800   _c_int00
+c30052e0   _cleanup_ptr
+c30052e4   _dtors_ptr
+c30052f0   _stack
+c3004680   abort
+ffffffff   binit
+c3003948   conver_data
+c30040a0   copy_in
+c30052ec   errno
+c3004280   exit
+c3000800   fft
+c3000c00   fft_2
+c30046e0   high_model
+c30038e0   init_data
+c3004ae0   low_model
+c3004400   main
+c30044a0   memcpy
+c3004ee0   normal_model
+c3003320   percent
+c3003338   setting_from_arm
+c3001000   similar_data_x
+c3002000   similar_data_y
+c3003000   similar_data_z
+c30039d8   similarity
+c3003e40   sqrt
+c3000000   wav
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_STATIC_BASE
+00000001   __TI_args_main
+00000400   __TI_STACK_SIZE
+c3000000   wav
+c3000800   fft
+c3000c00   fft_2
+c3001000   similar_data_x
+c3002000   similar_data_y
+c3003000   similar_data_z
+c3003320   percent
+c3003338   setting_from_arm
+c3003340   __c6xabi_divd
+c30038e0   init_data
+c3003948   conver_data
+c30039d8   similarity
+c3003e40   sqrt
+c3003fa0   _auto_init_elf
+c30040a0   copy_in
+c30041a0   __TI_zero_init
+c3004280   exit
+c3004340   __TI_tls_init
+c3004400   main
+c30044a0   memcpy
+c3004540   __TI_cpp_init
+c30045a0   __c6xabi_frcmpyd_div
+c30045e0   __c6xabi_llshru
+c3004620   _args_main
+c3004660   __c6xabi_errno_addr
+c3004680   C$$EXIT
+c3004680   abort
+c30046a0   __TI_decompress_none
+c30046c0   __TI_decompress_rle24
+c30046e0   high_model
+c3004ae0   low_model
+c3004ee0   normal_model
+c30052e0   _cleanup_ptr
+c30052e4   _dtors_ptr
+c30052e8   __TI_enable_exit_profile_output
+c30052ec   __errno
+c30052ec   errno
+c30052f0   _stack
+c30056f0   __TI_STACK_END
+c3005800   _c_int00
+c3006474   __TI_Handler_Table_Base
+c3006480   __TI_Handler_Table_Limit
+c3006488   __TI_CINIT_Base
+c3006498   __TI_CINIT_Limit
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+
+[57 symbols]
